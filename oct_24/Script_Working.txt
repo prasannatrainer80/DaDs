@@ -1,8 +1,8 @@
-drop database if exists JFS40;
+drop database if exists Dads;
 
-create database JSF40;
+create database Dads;
 
-use JSF40;
+use DaDs;
 
 create table dept(
   deptno int,
