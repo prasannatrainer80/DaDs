@@ -1,0 +1,120 @@
+-- Display list of databases in MySQL instance 
+
+show databases;
+
+-- change to dads database
+
+use dads;
+
+-- Display List of tables in current database 
+
+show tables;
+
+-- Display info about Dept table
+
+desc Dept;
+
+-- Display all records from Dept table 
+
+select * from Dept;
+
+-- Display all records from Emp table 
+
+select * from Emp;
+
+-- Display empno,ename,job,sal,mgr,comm from emp table 
+
+select Empno,Ename,job,sal,mgr,comm
+from Emp;
+
+-- where clause : Used to display filtered data (Displays records based on condition) 
+
+-- Display info whose empno is 7839
+
+select * from Emp where empno=7839;
+
+-- Display info whose ename is 'ADAMS'
+
+select * from Emp where ename='ADAMS';
+
+-- Display info whose job is 'MANAGER'
+
+select * from Emp where job='MANAGER';
+
+-- Display info whose sal >= 3000
+
+select * from Emp where sal >= 3000;
+
+-- Between...AND : Used to display values from start to end range 
+
+select * from Emp where sal between 1000 and 3000;
+
+select * from Emp where sal NOT between 1000 and 3000;
+
+-- IN CLAUSE : Used to display multiple values of particular table column.
+
+-- Display info whose ename is SCOTT or WARD or JAMES or JONES
+
+select * from Emp where ename in('SCOTT','WARD','JAMES','JONES');
+
+-- Display info whose empno is 7369,7499,7839 or 7902
+
+select * from Emp where empno in(7369,7499,7839,7902);
+
+-- Display info whose job is 'MANAGER' or 'CLERK' or 'ANALYST'
+
+select * from Emp where job in('MANAGER','CLERK','ANALYST');
+
+select * from Emp where job NOT in('MANAGER','CLERK','ANALYST');
+
+-- LIKE operator : Used to display data w.r.t. Wildcards (%,_) 
+
+-- Display info whose name starts with 'S'
+
+select * from EMp where ename like 'S%';
+
+-- Display info whose name ends with 'S'
+
+select * from Emp where ename like '%S';
+
+-- Display info whose name starts with J and 5th char is S
+
+select * from Emp where ename like 'J___S';
+
+-- Order By : Used to display data w.r.t. Specific field(s) in ascending or descending order. 
+
+select * from Emp order by Ename;
+
+select * from EMp order by sal desc;
+
+select * from Emp order by Job,Ename;
+
+select * from Emp order by Job,Ename desc;
+
+-- Distinct : Used to eliminate duplicate entries at the time of display.
+
+select distinct job from emp;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
