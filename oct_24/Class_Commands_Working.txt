@@ -95,6 +95,44 @@ select * from Emp order by Job,Ename desc;
 
 select distinct job from emp;
 
+-- Write a query as display manager name as 
+
+for CLERK reporting as 'Bhargavi'
+for SALESMAN reporting as 'Somu'
+for ANALYST reporting as 'Ganesh'
+for MANAGER reporting as 'Ramya'
+
+for PRESIDENT reporting as 'No Manager'
+
+select empno,ename,job,sal,
+case job
+   WHEN 'CLERK' THEN 'Bhargavi'
+   WHEN 'SALESMAN' THEN 'Somu'
+   WHEN 'ANALYST' THEN 'Ganesh'
+   WHEN 'MANAGER' THEN 'Ramya'
+   WHEN 'PRESIDENT' THEN 'No Manager'
+end 'Reporting'
+from Emp;
+
+-- Write a query as display Headoffice as
+
+for CLERK DELHI
+for SALESMAN Bangalore
+for ANALYST Chennai
+for MANAGER Hyderabad
+
+for PRESIDENT reporting as 'Any Branch'
+
+select empno,ename,job,sal,
+case job
+   WHEN 'CLERK' THEN 'Delhi'
+   WHEN 'SALESMAN' THEN 'Bangalore'
+   WHEN 'ANALYST' THEN 'Chennai'
+   WHEN 'MANAGER' THEN 'Hyderabad'
+   WHEN 'PRESIDENT' THEN 'Any Branch'
+end 'Reporting'
+from Emp;
+
 
 
 

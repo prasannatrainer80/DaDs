@@ -1,0 +1,22 @@
+use dads;
+
+select empno,ename,job,sal,comm from Emp;
+
+select empno,ename,job,sal,comm,
+case 
+  WHEN comm is NULL THEN 0 else comm
+end 'Comm'
+from Emp;
+
+
+select empno,ename,job,sal,comm,
+case 
+  WHEN comm is NULL THEN 0 else comm
+end 'Comm',
+case  
+  WHEN COMM IS NULL THEN SAL ELSE SAL+COMM
+end 'TakeHome'
+from Emp;
+
+
+
