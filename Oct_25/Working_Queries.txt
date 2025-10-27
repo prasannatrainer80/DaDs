@@ -18,5 +18,75 @@ case
 end 'TakeHome'
 from Emp;
 
+ROW_NUMBER() : Used to generate row number to the table records based on particular field. 
+
+select empno,ename,job,sal,row_number() 
+OVER(order by sal desc) Rno from emp;
+
+RANK() : Used to generate rank number on the field specified.
+
+select empno,ename,job,sal,RANK() 
+OVER(order by sal desc) Rno from emp;
+
+DENSE_RANK()  Used to generate sequential ranking on the field specified. 
+
+select empno,ename,job,sal,DENSE_RANK() 
+OVER(order by sal desc) Rno from emp;
+
+String Functions 
+_________________
+
+1) Instr() : used to display the first occurrence of given char in a string. 
+
+select instr('bhargavi','a');
+
+select ename,instr(ename,'A') From Emp;
+
+
+2) Length() : Displays length of string 
+
+select length('ganesh');
+
+select ename,length(ename) from Emp;
+
+3) Reverse() : Displays the string in reverse order
+
+select ename, reverse(ename) from Emp;
+
+select reverse('venkata');
+
+4) LEft() : Displays no.of left-side chars
+
+5) Right() : Displays no.of right-side chars
+
+select left('Venkata',4), right('Venkata',4);
+
+select ename,left(ename,4),right(ename,4) from emp;
+
+6) Lower : Displays in lower case
+
+7) Upper : Displays in upper case
+
+select upper('Bharvavi'),lower('Bhargavi');
+
+select ename,lower(ename),upper(ename) from emp;
+
+8) Substring() : Used to display part of the string 
+
+select substring('welcome',3,4) 
+
+9) Concat() : used to concatenate multiple strings
+
+select concat('welcome',' ','mysql');
+
+10) replace() : Used to replace old value with new value in all occurrences.
+
+select replace('Java Training','Java','Ds');
+
+
+
+
+
+
 
 
