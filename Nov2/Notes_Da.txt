@@ -1,0 +1,99 @@
+use DaDs;
+
+drop table if exists student;
+
+create table student
+(
+   Sno INT Primary Key,
+   Name varchar(30) NOT NULL,
+   Sub1 INT, 
+   Sub2 INT,
+   Sub3 INT,
+   Total INT,
+   Aveg numeric(9,2)
+);
+
+
+Insert into Student(sno,Name,Sub1,Sub2,Sub3) values(1,'Pradeep',87,56,88),
+(2,'Akshitha',87,65,77),
+(3,'Ganesh',88,87,53),
+(4,'Priyanka',87,66,77);
+
+update student set total = sub1+sub2+sub3, aveg=(sub1+sub2+sub3)/3;
+
+select * from student;
+
+
+drop table if exists EmployPayroll;
+
+create table EmployPayRoll
+(
+    EmpId INT,
+    Name varchar(30),
+    Salary numeric(9,2),
+    Hra Numeric(9,2),
+    Da Numeric(9,2),
+    Ta Numeric(9,2),
+    Tax Numeric(9,2),
+    Pf Numeric(9,2),
+    Gross Numeric(9,2),
+    NetPay numeric(9,2)
+);
+
+Insert into EmployPayroll(EmpId,Name,Salary) 
+values(1,'Bhargavi',77723),(2,'Bharadwaj',77234),
+(3,'Ramya',77233);
+
+Update EmployPayroll set Hra=Salary*0.03,Da=Salary*0.01,Ta=Salary*0.012;
+
+Update EmployPayroll set Tax=Salary * 0.12, Pf = Salary * 0.11;
+
+Update EmployPayroll set Gross = Salary + HRa + Da + Ta;
+
+Update EmployPayroll Set NetPay = Gross - Tax - PF;
+
+drop table if exists AgentNew;
+
+Create Table AgentNew
+(
+  AgentID INT Primary Key AUTO_INCREMENT,
+  FirstName varchar(30),
+  LastName varchar(30),
+  FullName varchar(80),
+  City varchar(30),
+  State varchar(10)
+);
+
+Insert into AgentNew(FirstName,LastName,City,State) 
+values('Raj','Kishore','Chennai','TN'),
+('Mahesh','Manne','Bangalore','KA'),
+('Archana','Arora','Delhi','UP');
+
+Update AgentNew set FullName = concat(FirstName,' ',lastName);
+
+select * from AgentNew;
+
+
+For employ table
+
+-- Increase Basic by 5000 for name is 'Suhaas'
+
+Update Employ 
+set Basic=Basic+5000 WHERE Name='Suhaas';
+
+-- For All 'Java' Dept employees increase basic by 1000;
+
+update Employ
+set Basic = Basic + 1000 where dept='Java';
+
+-- Update basic by 90000 for empno 5
+
+-- update Name as 'Karima Saleem' for Name 'Kareem'
+
+-- Update Dept as 'QA' for Name 'Karthik'
+
+-- Update Desig as 'Manager' for Empno 3 
+
+
+
+
