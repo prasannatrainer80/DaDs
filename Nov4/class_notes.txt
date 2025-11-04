@@ -1,0 +1,12 @@
+use dads;
+
+Delete from agent where agentId= 15;
+
+start transaction;
+delete from Agent where Agentid=13;
+
+select * from Agent;
+
+rollback;
+
+select * from Agent;
