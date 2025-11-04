@@ -75,7 +75,12 @@ from Dept INNER JOIN EMP On Dept.Deptno = Emp.Deptno;
 select D.Deptno,Dname,Empno,Ename,job,sal
 from Dept D INNER JOIN Emp E ON D.Deptno=E.Deptno;
 
-
+select A.AgentID,FirstName,LastName,City,SSN,P.PolicyID,APpNumber,
+ModalPremium,AnnualPremium
+from Agent A INNER JOIN AgentPolicy AP 
+ON A.AgentId = Ap.AgentID INNER JOIN Policy P 
+ON P.PolicyID = AP.PolicyID;
+ 
 
 
 
