@@ -1,0 +1,27 @@
+Joins : Allows you to extract data from more than one table.
+
+There are various types of joins known as
+
+(i) Inner Join : Acts as an INTERSECT operator, used to extract only common records from the given table. 
+
+syntax : 
+
+select field(s) from tabl1 inner join tabl2 on 
+primary_key=foreign_key;
+
+
+select 
+from Dept 
+
+(ii) Outer Join : There are various types of outer joins as 
+
+	(i) Left Join : All records from the left-side table, and matching records from the right-side table. If any child record not available then it would be replaced with NULL.
+
+	(ii) Right Join
+
+
+
+(iii) Cross Join
+
+(iv) Self Join
+

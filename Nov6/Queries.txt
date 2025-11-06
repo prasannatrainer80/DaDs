@@ -1,0 +1,27 @@
+use dads;
+
+
+select Dept.Deptno,Dname,Empno,Ename,job,sal
+from Dept INNER JOIN Emp ON Dept.Deptno=Emp.Deptno;
+
+select D.Deptno,Dname,Empno,Ename,job,sal
+from Dept D INNER JOIN EMP E ON D.Deptno = E.Deptno;
+
+select A.AgentId,FirstName,lastName,City,SSN,
+P.PolicyID,AppNumber,ModalPremium,AnnualPremium
+from Agent A INNER JOIN AgentPolicy AP 
+ON A.AgentID = Ap.AgentID 
+INNER JOIN Policy P ON P.PolicyID = Ap.PolicyID;
+
+-- LEFT JOIN EXAMPLE
+
+select D.Deptno,Dname,Empno,Ename,job,sal
+from Dept D LEFT JOIN EMP E ON D.Deptno = E.Deptno;
+
+select A.AgentId,FirstName,lastName,City,SSN,
+P.PolicyID,AppNumber,ModalPremium,AnnualPremium
+from Agent A LEFT JOIN AgentPolicy AP 
+ON A.AgentID = Ap.AgentID 
+LEFT JOIN Policy P ON P.PolicyID = Ap.PolicyID;
+
+
