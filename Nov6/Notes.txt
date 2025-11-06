@@ -30,7 +30,36 @@ select E1.Empno 'Manager Number',
        E1.Ename 'Manager Name',
        E2.Empno 'Employ Number',
        E2.Ename 'Employ Name'
-from Emp E1 INNER JOIN Emp E2 ON E1.Empno = E2.Mgr;
+from Emp E1 INNER JOIN Emp E2 ON E1.Empno = E2.Mgr
+order by E1.empno;
+
+Subqueries : Sometimes it is not possible to extract data by using single select statement, to overcome this we need the help of subquery.  A subquery is a query, that which is having another query inside, the query which inside known as inner query and the query which outside known as outer query. 
+
+Everytime, the result of INNER Query will be send as input to the outer query.
+
+-- Display Max salary from Emp table 
+
+select max(sal) from Emp;
+
+-- Display Employ Name who is getting max. salary
+
+select Ename from emp where sal =(select max(sal) from Emp);
+
+-- Display 2nd max salary 
+
+select max(sal) from Emp where sal < (select max(sal) from Emp);
+
+-- Display Employ name who is getting 2nd max salary
+
+select ename from emp where sal = (
+select max(sal) from Emp where sal < (select max(sal) from Emp));
+
+
+
+
+
+
+
 
 
 
