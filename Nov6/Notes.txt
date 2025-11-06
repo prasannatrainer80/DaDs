@@ -17,11 +17,22 @@ from Dept
 
 	(i) Left Join : All records from the left-side table, and matching records from the right-side table. If any child record not available then it would be replaced with NULL.
 
-	(ii) Right Join
+	(ii) Right Join : All records from the right-side table, and matching records from the left-side table. If any child record not available then it would be replaced with NULL.
+
+(iii) Cross Join : Generates cartician product of given tables. Table A contains n records and Table B contains m records, then it generates (n*m) records. 
+
+(iv) Self Join : If a table joins with itself known as self join. 
+
+select empno,ename,mgr from Emp;
+
+
+select E1.Empno 'Manager Number',
+       E1.Ename 'Manager Name',
+       E2.Empno 'Employ Number',
+       E2.Ename 'Employ Name'
+from Emp E1 INNER JOIN Emp E2 ON E1.Empno = E2.Mgr;
 
 
 
-(iii) Cross Join
 
-(iv) Self Join
 

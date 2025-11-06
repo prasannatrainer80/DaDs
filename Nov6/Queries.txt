@@ -24,4 +24,19 @@ from Agent A LEFT JOIN AgentPolicy AP
 ON A.AgentID = Ap.AgentID 
 LEFT JOIN Policy P ON P.PolicyID = Ap.PolicyID;
 
+-- RIGHT JOIN Example
+
+select D.Deptno,Dname,Empno,Ename,job,sal
+from Dept D RIGHT JOIN EMP E ON D.Deptno = E.Deptno;
+
+select A.AgentId,FirstName,lastName,City,SSN,
+P.PolicyID,AppNumber,ModalPremium,AnnualPremium
+from Agent A RIGHT JOIN AgentPolicy AP 
+ON A.AgentID = Ap.AgentID 
+RIGHT JOIN Policy P ON P.PolicyID = Ap.PolicyID;
+
+select * from Agent cross join agentPolicy;
+
+select * from Policy cross Join AgentPolicy;
+
 
