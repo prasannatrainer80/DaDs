@@ -85,6 +85,80 @@ select * from Policy where PolicyID <> ALL(select PolicyId from AgentPolicy);
 
 select * from Policy where policyId = ANY(select PolicyId from AgentPolicy);
 
+-- Display Employee Details who are not taken any leave 
+
+select * from Employee where empno <> ALL(select distinct empno from LeaveDetails);
+
+-- Display Employee Details who took leave 
+
+select * from Employee where empno = ANY(select distinct empno from LeaveDetails);
+
+____________
+
+
+CMS DB
+
+-- Apply Inner Join between Customer and Wallet
+
+select C.Cus_Id,Cus_name,Cus_userName,Cus_Email,
+Wal_Amount,Wal_Source
+from Customer C INNER JOIN Wallet W ON C.Cus_Id = W.Cus_id;
+
+select C.Cus_Id,Cus_name,Cus_userName,Cus_Email,
+Wal_Amount,Wal_Source
+from Customer C LEFT JOIN Wallet W ON C.Cus_Id = W.Cus_id;
+
+select C.Cus_Id,Cus_Name,Cus_PHn_No,Cus_UserName,
+Ven_Id,Wal_Source,ORd_Date,ORd_BillAmount
+from Customer C INNER JOIN Orders O ON
+C.Cus_ID=O.Cus_ID;
+
+
+select C.Cus_Id,Cus_Name,Cus_PHn_No,Cus_UserName,
+Ven_Id,Wal_Source,ORd_Date,ORd_BillAmount
+from Customer C LEFT JOIN Orders O ON
+C.Cus_ID=O.Cus_ID;
+
+-- Display Customer details who don't have wallet 
+select * from customer where cus_id <> ALL(select distinct cus_id 
+from Wallet);
+-- Display Customer Details who did not place any order 
+select * from Customer where cus_Id <> ALL(select Distinct Cus_ID 
+from Orders);
+-- Display customer details who have wallets
+select * from customer where cus_id = ANY(select distinct cus_id 
+from Wallet);
+-- Display Customer Details who placed orders
+select * from Customer where cus_Id = ANY(select Distinct Cus_ID 
+from Orders);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
 
 
 
