@@ -1,0 +1,167 @@
+Subqueries : Sometimes it is not possible to extract data by using single select statement, to overcome this we need the help of subqueries. A subquery is a query, that which is having another query inside. The query which is inside known as inner query, the query which outside known as outer query. Every time, the result of inner query will be send as input to the outer query.
+
+-- Example 
+
+-- Write a query to display max sal from emp table 
+
+use dads;
+
+select max(sal) from Emp;
+
+-- Display Employ Name who is getting max. salary
+
+select ename from Emp where sal = (select max(sal) from Emp);
+
+-- Display 2nd max salary 
+
+select max(sal) from Emp where sal < 
+(select max(sal) from Emp);
+
+-- Display employ name who is getting 2nd max salary
+
+select ename from Emp where sal =
+(
+select max(sal) from Emp where sal < 
+(select max(sal) from Emp)
+);
+
+-- Display 2nd min salary
+
+select min(sal) from Emp where sal > (select min(sal) from Emp);
+
+-- Display Employ Name who is getting 2nd min. salary 
+
+select ename from Emp where sal =
+(
+select min(sal) from Emp where sal > (select min(sal) from Emp)
+);
+
+-- select * from policy;
+
+-- Display max. annualpremium 
+
+select max(annualpremium) from Policy;
+
+-- Display 2nd max. annualpremium 
+
+There are 2 types of subqueries known as 
+
+1) Single Row Subquery : A subquery, that which returns only one value to the outer query known as single row subquery.
+
+2) Multi Row Subquery : A subquery, that which returns more than one value to the outer query known as multi row subquery. 
+
+-- Display Idle agents (AgentId exists in Agent and not in AgentPolicy table)
+
+select * from Agent where agentId <> (select AgentId from AgentPolicy);
+
+If subquery returns more than one value, then we need to handle by using 2 operators known as
+
+(I) ALL : Acts as AND operator. 
+
+	Empno <> ALL(10,20,30) means 
+	
+		Empno <> 10 AND Empno <> 20 AND Empno <> 30
+
+(II) ANY : Acts as OR Operator.
+
+	Empno = ANY(10,20,30) means 
+	
+		Empno = 10 OR Empno = 20 OR Empno = 30;
+
+
+select * from Agent where agentId <> ALL(select distinct AgentId from AgentPolicy);
+
+-- Display matching records from Agent and AgentPolicy Table (means AgentId Exists in Agent Table but not in AgentPolicy Table) 
+
+select * from Agent where agentID = ANY(select distinct AgenId from AgentPolicy);
+
+--              AgentId = 1 or 2 or 4 or 5 
+
+-- Display Idle Policies (PolicyId exists in Policy Table and not in AgentPolicy Table) 
+
+select * from Policy where PolicyID <> ALL(select PolicyId from AgentPolicy);
+
+-- Display Matching records from Agent and AgentPolicy (PolicyId exists in both Policy and AgentPolicy Tables)
+
+select * from Policy where policyId = ANY(select PolicyId from AgentPolicy);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
